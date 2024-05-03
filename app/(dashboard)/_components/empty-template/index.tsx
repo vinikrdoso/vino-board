@@ -1,5 +1,13 @@
-import { Button } from "@/components/ui/button";
+"use client"
+
 import Image from "next/image";
+
+import { api } from "@/convex/_generated/api";
+
+import { Button } from "@/components/ui/button";
+import { useOrganization } from "@clerk/nextjs";
+import { useApiMutation } from "@/hooks/use-api-mutation";
+import { toast } from "sonner";
 
 interface EmptyTemplateProps {
   title: string;
@@ -9,6 +17,24 @@ interface EmptyTemplateProps {
 }
 
 export function EmptyTemplate({ title, subtitle, img, showButton }: EmptyTemplateProps) {
+  const { organization } = useOrganization()
+  const { mutate, pending } = useApiMutation(api.board.create)
+
+  function onClick() {
+    if (!organization) return
+
+    mutate({
+      orgId: organization.id,
+      title: 'test'
+    })
+      .then((id) => {
+        toast.success('Board created')
+      })
+      .catch(() => {
+        toast.error('Failed to create board')
+      })
+  }
+
   return (
     <div className="h-full flex flex-col items-center justify-center">
       <Image
@@ -26,7 +52,11 @@ export function EmptyTemplate({ title, subtitle, img, showButton }: EmptyTemplat
       <div className="mt-6">
         {
           showButton && (
-            <Button size='lg'>
+            <Button
+              onClick={onClick}
+              size='lg'
+              disabled={pending}
+            >
               Create board
             </Button>
           )
