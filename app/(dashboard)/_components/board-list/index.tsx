@@ -3,7 +3,7 @@
 import { EmptyTemplate } from "../empty-template";
 import { api } from "@/convex/_generated/api";
 import { useQuery } from "convex/react";
-import { BoardCard, BoardCardSkeleton } from "../board-card";
+import { BoardCard } from "../board-card";
 import { NewBoardButton } from "../new-board-button";
 
 interface BoardListProps {
