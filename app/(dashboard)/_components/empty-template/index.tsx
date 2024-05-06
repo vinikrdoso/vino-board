@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { useOrganization } from "@clerk/nextjs";
 import { useApiMutation } from "@/hooks/use-api-mutation";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface EmptyTemplateProps {
   title: string;
@@ -19,6 +20,7 @@ interface EmptyTemplateProps {
 export function EmptyTemplate({ title, subtitle, img, showButton }: EmptyTemplateProps) {
   const { organization } = useOrganization()
   const { mutate, pending } = useApiMutation(api.board.create)
+  const router = useRouter()
 
   function onClick() {
     if (!organization) return
@@ -29,6 +31,7 @@ export function EmptyTemplate({ title, subtitle, img, showButton }: EmptyTemplat
     })
       .then((id) => {
         toast.success('Board created')
+        router.push(`/board/${id}`)
       })
       .catch(() => {
         toast.error('Failed to create board')
