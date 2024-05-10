@@ -44,7 +44,7 @@ export function Info({ boardId }: InfoProps) {
               "font-semibold text-xl ml-2 text-black",
               font.className
             )}>
-              fddfds
+              Vino Board
             </span>
           </Link>
         </Button>
