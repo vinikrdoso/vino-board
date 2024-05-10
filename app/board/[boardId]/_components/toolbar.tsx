@@ -22,7 +22,7 @@ export function Toolbar() {
   )
 }
 
-Toolbar.Skeleton = function ToolbarSkeleton() {
+export function ToolbarSkeleton() {
   return (
     <div className="absolute top-[50%] -translate-y-[50%] left-2 
     bg-white shadow-md rounded-md h-[360px] w-[52px]" />
