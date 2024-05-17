@@ -54,6 +54,7 @@ export const SelectionBox = memo(({ onResizeHandlePointerDown }: SelectionBoxPro
             y={0}
             onPointerDown={(e) => {
               e.stopPropagation()
+              onResizeHandlePointerDown(Side.Top + Side.Left, bounds)
             }}
           />
           {/* upper center */}
@@ -69,6 +70,7 @@ export const SelectionBox = memo(({ onResizeHandlePointerDown }: SelectionBoxPro
             y={0}
             onPointerDown={(e) => {
               e.stopPropagation()
+              onResizeHandlePointerDown(Side.Top, bounds)
             }}
           />
           {/* upper right */}
@@ -84,6 +86,7 @@ export const SelectionBox = memo(({ onResizeHandlePointerDown }: SelectionBoxPro
             y={0}
             onPointerDown={(e) => {
               e.stopPropagation()
+              onResizeHandlePointerDown(Side.Top + Side.Right, bounds)
             }}
           />
           {/* center left */}
@@ -99,6 +102,7 @@ export const SelectionBox = memo(({ onResizeHandlePointerDown }: SelectionBoxPro
             y={0}
             onPointerDown={(e) => {
               e.stopPropagation()
+              onResizeHandlePointerDown(Side.Left, bounds)
             }}
           />
           {/* center right */}
@@ -114,6 +118,7 @@ export const SelectionBox = memo(({ onResizeHandlePointerDown }: SelectionBoxPro
             y={0}
             onPointerDown={(e) => {
               e.stopPropagation()
+              onResizeHandlePointerDown(Side.Right, bounds)
             }}
           />
           {/* bottom left */}
@@ -129,6 +134,7 @@ export const SelectionBox = memo(({ onResizeHandlePointerDown }: SelectionBoxPro
             y={0}
             onPointerDown={(e) => {
               e.stopPropagation()
+              onResizeHandlePointerDown(Side.Bottom + Side.Left, bounds)
             }}
           />
           {/* bottom center */}
@@ -144,6 +150,7 @@ export const SelectionBox = memo(({ onResizeHandlePointerDown }: SelectionBoxPro
             y={0}
             onPointerDown={(e) => {
               e.stopPropagation()
+              onResizeHandlePointerDown(Side.Bottom, bounds)
             }}
           />
           {/* bottom right */}
@@ -159,6 +166,7 @@ export const SelectionBox = memo(({ onResizeHandlePointerDown }: SelectionBoxPro
             y={0}
             onPointerDown={(e) => {
               e.stopPropagation()
+              onResizeHandlePointerDown(Side.Bottom + Side.Right, bounds)
             }}
           />
         </>
